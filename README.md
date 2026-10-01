@@ -112,38 +112,38 @@ The application follows a layered backend architecture:
 🔄 How the API Works
 
 The API follows a simple request-response workflow:
-`Client Request
-      ↓
-Express Server
-      ↓
-Route Matching
-      ↓
-Authentication / Validation
-      ↓
-Controller
-      ↓
-Mongoose
-      ↓
-MongoDB Atlas
-      ↓
-JSON Response`
+                      Client Request
+                            ↓
+                      Express Server
+                            ↓
+                      Route Matching
+                            ↓
+                      Authentication / Validation
+                            ↓
+                      Controller
+                            ↓
+                      Mongoose
+                            ↓
+                      MongoDB Atlas
+                            ↓
+                      JSON Response
 
 
 FOR PROTECTED OPERATIONS:
 
-Login
-  ↓
-JWT Token Generated
-  ↓
-Bearer Token
-  ↓
-JWT Verification
-  ↓
-Protected Endpoint
-  ↓
-Database Operation
-  ↓
-JSON Response
+                      Login
+                        ↓
+                      JWT Token Generated
+                        ↓
+                      Bearer Token
+                        ↓
+                      JWT Verification
+                        ↓
+                      Protected Endpoint
+                        ↓
+                      Database Operation
+                        ↓
+                      JSON Response
 
 🛠️ TECHNOLOGY STACK
 
@@ -176,23 +176,23 @@ Testing & Development
 The API uses JWT-based authentication to protect sensitive product management operations.
 Passwords are never stored directly. Before being stored in MongoDB, user passwords are securely hashed using bcryptjs.
 🔑 AUTHENTICATION OVERFLOW 
-Register
-   ↓
-Password Hashed using bcrypt
-   ↓
-User Stored in MongoDB
-   ↓
-Login
-   ↓
-Credentials Verified
-   ↓
-JWT Token Generated
-   ↓
-Token Sent with Protected Requests
-   ↓
-JWT Verified by Middleware
-   ↓
-Access Granted
+                      Register
+                         ↓
+                      Password Hashed using bcrypt
+                         ↓
+                      User Stored in MongoDB
+                         ↓
+                      Login
+                         ↓
+                      Credentials Verified
+                         ↓
+                      JWT Token Generated
+                         ↓
+                      Token Sent with Protected Requests
+                         ↓
+                      JWT Verified by Middleware
+                         ↓
+                      Access Granted
 
 🔑 Using the JWT Token
 
@@ -225,25 +225,25 @@ Product
 └── Updated At
 
 CRUD OPERATIONS:
-  CREATE  → Add a new product
-  READ    → View products
-  UPDATE  → Modify product information
-  DELETE  → Remove a product
+                      CREATE  → Add a new product
+                      READ    → View products
+                      UPDATE  → Modify product information
+                      DELETE  → Remove a product
 
 🌐 API ENDPOINTS:
 🔐 Authentication
-Method	  Endpoint	          Purpose
-POST	    /api/auth/register	Register a new user
-POST	    /api/auth/login	    Login and receive JWT
+                      Method	  Endpoint	          Purpose
+                      POST	    /api/auth/register	Register a new user
+                      POST	    /api/auth/login	    Login and receive JWT
 
 📦 PRODUCTS: 
-Method	  Endpoint	          Purpose	                Authentication
-POST	    /api/products	      Create product	        🔒 Required
-GET	      /api/products	      Get all products	      🌐 Public
-GET	      /api/products/:id	  Get product by ID	      🌐 Public
-GET	      /api/products/stats	Get product statistics	🌐 Public
-PUT	      /api/products/:id	  Update product	        🔒 Required
-DELETE	  /api/products/:id	  Delete product      	  🔒 Required
+                      Method	  Endpoint	          Purpose	                Authentication
+                      POST	    /api/products	      Create product	        🔒 Required
+                      GET	      /api/products	      Get all products	      🌐 Public
+                      GET	      /api/products/:id	  Get product by ID	      🌐 Public
+                      GET	      /api/products/stats	Get product statistics	🌐 Public
+                      PUT	      /api/products/:id	  Update product	        🔒 Required
+                      DELETE	  /api/products/:id	  Delete product      	  🔒 Required
 
 🔎 SEARCH & FILTERING: 
 Search by PRODUCT NAME
@@ -260,9 +260,9 @@ Example
   GET /api/products?page=1&limit=2
 
 Pagination Parameters
-Parameter	    Purpose
-page	        Specifies the page number
-limit	        Specifies the number of products per page
+                      Parameter	    Purpose
+                      page	        Specifies the page number
+                      limit	        Specifies the number of products per page
 
 Example Response
   {
@@ -319,52 +319,52 @@ Tested Functionality
 🚨 ERROR HANDLING 
 
 The API returns appropriate HTTP status codes for different situations.
-Status Code	    Meaning
-200	            Request successful
-201	            Resource created successfully
-400	            Validation / Bad Request
-401	            Unauthorized
-404	            Resource not found
-500	            Server error
+                      Status Code	    Meaning
+                      200	            Request successful
+                      201	            Resource created successfully
+                      400	            Validation / Bad Request
+                      401	            Unauthorized
+                      404	            Resource not found
+                      500	            Server error
 Responses are returned in JSON format, making the API suitable for integration with web and mobile applications.
 
 📁 PROJECT STRUCTURE 
-product-catalog-api/
-│
-├── config/
-│   └── db.js
-│
-├── controllers/
-│   ├── authController.js
-│   └── productController.js
-│
-├── middleware/
-│   ├── authMiddleware.js
-│   └── validateProduct.js
-│
-├── models/
-│   ├── Product.js
-│   └── User.js
-│
-├── routes/
-│   ├── authRoutes.js
-│   └── productRoutes.js
-│
-├── .gitignore
-├── package.json
-├── package-lock.json
-└── server.js
+                      product-catalog-api/
+                      │
+                      ├── config/
+                      │   └── db.js
+                      │
+                      ├── controllers/
+                      │   ├── authController.js
+                      │   └── productController.js
+                      │
+                      ├── middleware/
+                      │   ├── authMiddleware.js
+                      │   └── validateProduct.js
+                      │
+                      ├── models/
+                      │   ├── Product.js
+                      │   └── User.js
+                      │
+                      ├── routes/
+                      │   ├── authRoutes.js
+                      │   └── productRoutes.js
+                      │
+                      ├── .gitignore
+                      ├── package.json
+                      ├── package-lock.json
+                      └── server.js
 
 📂 FOLDER RESPONSIBILITIES 
 
-Folder       / File	Responsibility
-config       /	MongoDB connection configuration
-controllers  /	Authentication and product business logic
-middleware   /	JWT authentication and input validation
-models       /	MongoDB schemas for users and products
-routes       /	API endpoint definitions
-server.js	      Express server configuration and application entry point
-.gitignore	    Prevents sensitive/unnecessary files from being committed
+                      Folder       / File	Responsibility
+                      config       /	MongoDB connection configuration
+                      controllers  /	Authentication and product business logic
+                      middleware   /	JWT authentication and input validation
+                      models       /	MongoDB schemas for users and products
+                      routes       /	API endpoint definitions
+                      server.js	      Express server configuration and application entry point
+                      .gitignore	    Prevents sensitive/unnecessary files from being committed
 
 ⚙️ INSTALLATION & SETUP 
 
@@ -417,37 +417,36 @@ Note: These practices provide application-level security for the project; produc
 💡 KEY LEARNING OUTCOMES 
 
 Through this project, I gained practical experience in:
-
-Building RESTful APIs using Node.js and Express.js.
-Designing MongoDB schemas using Mongoose.
-Implementing CRUD operations.
-Implementing JWT authentication.
-Secure password handling using bcrypt.
-Validating API input.
-Implementing product search and filtering.
-Implementing pagination.
-Using MongoDB aggregation.
-Connecting applications to MongoDB Atlas.
-Testing APIs using Postman.
-Organizing backend applications using a modular architecture.
-Using Git and GitHub for version control.
+            Building RESTful APIs using Node.js and Express.js.
+            Designing MongoDB schemas using Mongoose.
+            Implementing CRUD operations.
+            Implementing JWT authentication.
+            Secure password handling using bcrypt.
+            Validating API input.
+            Implementing product search and filtering.
+            Implementing pagination.
+            Using MongoDB aggregation.
+            Connecting applications to MongoDB Atlas.
+            Testing APIs using Postman.
+            Organizing backend applications using a modular architecture.
+            Using Git and GitHub for version control.
 
 🚀 FUTURE ENHANCEMENTS
-
 The API can be extended with additional features such as:
-👥 Role-Based Access Control
-👤 Admin and Customer Roles
-🖼️ Product Image Upload
-⭐ Product Reviews & Ratings
-🛒 Shopping Cart
-📦 Order Management
-📊 Admin Dashboard
-🔔 Low-Stock Notifications
-🔍 Advanced Product Filtering
-📖 Swagger / OpenAPI Documentation
-☁️ Cloud Deployment
-📱 Frontend / Mobile Application Integration
-🌐 Repository
+            👥 Role-Based Access Control
+            👤 Admin and Customer Roles
+            🖼️ Product Image Upload
+            ⭐ Product Reviews & Ratings
+            🛒 Shopping Cart
+            📦 Order Management
+            📊 Admin Dashboard
+            🔔 Low-Stock Notifications
+            🔍 Advanced Product Filtering
+            📖 Swagger / OpenAPI Documentation
+            ☁️ Cloud Deployment
+            📱 Frontend / Mobile Application Integration
+            🌐 Repository
+
 🔗 GitHub Repository
 https://github.com/Netra2004/Syntecxhub_Product_Catalog_Management-
 
