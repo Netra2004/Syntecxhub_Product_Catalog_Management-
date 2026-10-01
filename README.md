@@ -112,7 +112,7 @@ The application follows a layered backend architecture:
 🔄 How the API Works
 
 The API follows a simple request-response workflow:
-``Client Request
+`Client Request
       ↓
 Express Server
       ↓
