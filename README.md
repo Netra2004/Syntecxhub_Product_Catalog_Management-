@@ -448,7 +448,8 @@ The API can be extended with additional features such as:
             🌐 Repository
 
 🔗 GitHub Repository
-https://github.com/Netra2004/Syntecxhub_Product_Catalog_Management-
+(https://github.com/Netra2004/Syntecxhub_Product_Catalog_Management-.git)
+
 
 👩‍💻 AUTHOR 
 G S Netra
